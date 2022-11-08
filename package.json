@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "prettier": "prettier --write .",
-  	"types": "tsc",
+    "types": "tsc",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
