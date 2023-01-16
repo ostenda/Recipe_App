@@ -16,7 +16,8 @@ export default function Login() {
              self-center 
              opacity-70 
              rounded-lg border-2 border-slate-800
-             p-0"
+             p-0
+             "
       >
         <div className="flex flex-col gap-y-4 pt-5 pb-9">
           <div className="self-center pb-6">
