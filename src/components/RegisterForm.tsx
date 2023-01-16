@@ -1,12 +1,9 @@
-import React from "react"
-
+import React from "react";
 
 function RegisterForm() {
-    return (
-        <div>RegisterForm</div>
-    )
+    return <div>RegisterForm</div>;
 }
 
-RegisterForm.propTypes = {}
+RegisterForm.propTypes = {};
 
-export default RegisterForm
+export default RegisterForm;
