@@ -1,4 +1,3 @@
-import LoginForm from "../components/LoginForm";
 import Login from "./LoginPage";
 
 export default function Home() {

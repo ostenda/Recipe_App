@@ -1,11 +1,8 @@
 import Image from "next/image";
-import LoginForm from "../components/LoginForm";
-import picture from "../public/images/loginBackgroud.png"
-
-
+import LoginForm from "../components/LoginForm"
+import picture from "../../public/images/loginBackgroud.png";
 
 export default function Login() {
-
   return (
     <>
       <Image
@@ -26,11 +23,9 @@ export default function Login() {
           <div className="self-center pb-6">
             Please log in to see your delicious recipes
           </div>
-          <LoginForm/>
+          <LoginForm />
         </div>
-
       </div>
-
     </>
   );
 }
