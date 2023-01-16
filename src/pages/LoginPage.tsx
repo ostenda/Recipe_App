@@ -1,13 +1,12 @@
 import Image from "next/image";
-import LoginForm from "../components/LoginForm"
-import picture from "../../public/images/loginBackgroud.png";
+import LoginForm from "../components/LoginForm";
 
 export default function Login() {
   return (
     <>
       <Image
         className="relative -z-10 blur=sm brightness-90"
-        src={picture}
+        src="/images/loginBackgroud.png"
         alt="dic"
         fill
       />

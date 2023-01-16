@@ -34,7 +34,7 @@ function LoginForm() {
   } = useForm<CredentialsTypes>({resolver});
 
   const sendDetails = handleSubmit((data) => console.log(data));
-  const openRegisterForm = () => console.log("start registering")
+  const openRegisterForm = () => console.log("start registering");
   return (
     <form
       className="w-full h-full flex flex-col space-y-4 px-8 "
