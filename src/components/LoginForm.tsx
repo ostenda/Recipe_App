@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useForm, Resolver } from "react-hook-form";
+import React, {useState} from "react";
+import {useForm, Resolver} from "react-hook-form";
 
 type CredentialsTypes = {
   username: string;
@@ -11,15 +11,15 @@ const resolver: Resolver<CredentialsTypes> = async (values) => {
     values: values.username ? values : {},
     errors: !values.username
       ? {
-        username: {
-          type: "required",
-          message: "Please enter a valid username",
-        },
-        password: {
-          type: "required",
-          message: "Please enter a valid password",
-        },
-      }
+          username: {
+            type: "required",
+            message: "Please enter a valid username",
+          },
+          password: {
+            type: "required",
+            message: "Please enter a valid password",
+          },
+        }
       : {},
   };
 };
@@ -30,8 +30,8 @@ function LoginForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<CredentialsTypes>({ resolver });
+    formState: {errors},
+  } = useForm<CredentialsTypes>({resolver});
 
   const sendDetails = handleSubmit((data) => console.log(data));
   const openRegisterForm = () => console.log("start registering");
