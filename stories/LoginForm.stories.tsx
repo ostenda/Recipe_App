@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import {ComponentMeta, ComponentStory} from "@storybook/react";
 import LoginForm from "../src/components/LoginForm";
 
 export default {

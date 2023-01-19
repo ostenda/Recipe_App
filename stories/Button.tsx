@@ -1,6 +1,5 @@
 import React from "react";
 
-
 interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
@@ -43,7 +42,7 @@ export const Button = ({
       className={["storybook-button", `storybook-button--${size}`, mode].join(
         " "
       )}
-      style={{ backgroundColor }}
+      style={{backgroundColor}}
       {...props}
     >
       {label}

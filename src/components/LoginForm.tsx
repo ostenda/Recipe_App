@@ -1,6 +1,6 @@
 import Link from "next/link";
-import React, { useState } from "react";
-import { useForm, Resolver } from "react-hook-form";
+import React, {useState} from "react";
+import {useForm, Resolver} from "react-hook-form";
 
 type CredentialsTypes = {
   username: string;
@@ -12,15 +12,15 @@ const resolver: Resolver<CredentialsTypes> = async (values) => {
     values: values.username ? values : {},
     errors: !values.username
       ? {
-        username: {
-          type: "required",
-          message: "Please enter a valid username",
-        },
-        password: {
-          type: "required",
-          message: "Please enter a valid password",
-        },
-      }
+          username: {
+            type: "required",
+            message: "Please enter a valid username",
+          },
+          password: {
+            type: "required",
+            message: "Please enter a valid password",
+          },
+        }
       : {},
   };
 };
@@ -31,8 +31,8 @@ function LoginForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<CredentialsTypes>({ resolver });
+    formState: {errors},
+  } = useForm<CredentialsTypes>({resolver});
 
   const sendDetails = handleSubmit((data) => console.log(data));
 
@@ -85,7 +85,9 @@ function LoginForm() {
       />
       <h4>Not logged in? Register here!</h4>
       <Link href="/RegisterPage">
-        <h1 className="flex font-bold border-4 border-teal-600 bg-teal-600 rounded-lg  w-32 justify-center items-center">Register</h1>
+        <h1 className="flex font-bold border-4 border-teal-600 bg-teal-600 rounded-lg  w-32 justify-center items-center">
+          Register
+        </h1>
       </Link>
     </form>
   );
