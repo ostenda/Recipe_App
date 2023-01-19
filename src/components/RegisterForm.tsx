@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import {useForm, Resolver} from "react-hook-form";
+import { useForm, Resolver } from "react-hook-form";
 
 type RegisterFormTypes = {
   username: string;
@@ -14,23 +14,23 @@ const resolver: Resolver<RegisterFormTypes> = async (values) => {
     values: values ? values : {},
     errors: !values
       ? {
-          username: {
-            type: "required",
-            message: "Please enter a valid username",
-          },
-          password: {
-            type: "required",
-            message: "Please enter a valid password",
-          },
-          email: {
-            type: "required",
-            message: "Please enter a valid email address",
-          },
-          motherMaidenName: {
-            type: "required",
-            message: "We must know your mother's maiden name",
-          },
-        }
+        username: {
+          type: "required",
+          message: "Please enter a valid username",
+        },
+        password: {
+          type: "required",
+          message: "Please enter a valid password",
+        },
+        email: {
+          type: "required",
+          message: "Please enter a valid email address",
+        },
+        motherMaidenName: {
+          type: "required",
+          message: "We must know your mother's maiden name",
+        },
+      }
       : {},
   };
 };
@@ -39,8 +39,8 @@ function RegisterForm() {
   const {
     register,
     handleSubmit,
-    formState: {errors},
-  } = useForm<RegisterFormTypes>({resolver});
+    formState: { errors },
+  } = useForm<RegisterFormTypes>({ resolver });
 
   const sendDetails = handleSubmit((data) => console.log(data));
 

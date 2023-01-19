@@ -1,5 +1,6 @@
-import React, {useState} from "react";
-import {useForm, Resolver} from "react-hook-form";
+import Link from "next/link";
+import React, { useState } from "react";
+import { useForm, Resolver } from "react-hook-form";
 
 type CredentialsTypes = {
   username: string;
@@ -11,15 +12,15 @@ const resolver: Resolver<CredentialsTypes> = async (values) => {
     values: values.username ? values : {},
     errors: !values.username
       ? {
-          username: {
-            type: "required",
-            message: "Please enter a valid username",
-          },
-          password: {
-            type: "required",
-            message: "Please enter a valid password",
-          },
-        }
+        username: {
+          type: "required",
+          message: "Please enter a valid username",
+        },
+        password: {
+          type: "required",
+          message: "Please enter a valid password",
+        },
+      }
       : {},
   };
 };
@@ -30,14 +31,14 @@ function LoginForm() {
   const {
     register,
     handleSubmit,
-    formState: {errors},
-  } = useForm<CredentialsTypes>({resolver});
+    formState: { errors },
+  } = useForm<CredentialsTypes>({ resolver });
 
   const sendDetails = handleSubmit((data) => console.log(data));
-  const openRegisterForm = () => console.log("start registering");
+
   return (
     <form
-      className="w-full h-full flex flex-col space-y-4 px-8 "
+      className="w-full h-full flex flex-col space-y-4 px-8 items-center "
       onSubmit={sendDetails}
     >
       <input
@@ -80,10 +81,12 @@ function LoginForm() {
       <input
         className="rounded-l border-4 border-teal-600 bg-teal-600 w-auto mx-auto bg-gre"
         type="submit"
-        value="submit"
+        value="Submit"
       />
       <h4>Not logged in? Register here!</h4>
-      <button onClick={openRegisterForm}>Register</button>
+      <Link href="/RegisterPage">
+        <h1 className="flex font-bold border-4 border-teal-600 bg-teal-600 rounded-lg  w-32 justify-center items-center">Register</h1>
+      </Link>
     </form>
   );
 }

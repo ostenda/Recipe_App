@@ -1,9 +1,12 @@
-import RegisterForm from "../components/RegisterForm";
+
+import Page from "./Page";
 
 export default function Home() {
   return (
-    <div className="flex container w-screen h-scree mx-auto justify-center items-center">
-      <RegisterForm />
+
+    <div className="flex container w-screen h-screen mx-auto">
+      <Page />
     </div>
+
   );
 }

@@ -6,7 +6,7 @@ type Recipe = {
 };
 
 //import {ReceiptPercentIcon} from "@heroicons/react/24/outline";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 function Popular() {
   useEffect(() => {
