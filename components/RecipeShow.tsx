@@ -23,7 +23,7 @@ export default function RecipeShow({ recipe, categories, ingredients, steps }) {
     }
 
     return (
-        <div className='p-5 m-5 bg-orange-300 w-2/5 rounded-lg'>
+        <div className='p-5 m-5 bg-orange-300 w-2/5 rounded-lg mx-auto w-8/12'>
             <div id='header' className='bg-orange-300 m-10'>
                 <h1 className='mt-1 font-sans text-sm text-Black-400 font-bold '>Recipe {recipe.name}</h1>
                 <h1>By:  {recipe.author.name}</h1>
