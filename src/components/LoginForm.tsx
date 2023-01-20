@@ -1,16 +1,18 @@
 import Link from "next/link";
-import React, {useState} from "react";
+import React from "react";
 import {useForm, Resolver} from "react-hook-form";
+import { signIn } from "next-auth/react";
+import {useRouter} from "next/router";
 
 type CredentialsTypes = {
-  username: string;
+  email: string;
   password: string;
 };
 
 const resolver: Resolver<CredentialsTypes> = async (values) => {
   return {
-    values: values.username ? values : {},
-    errors: !values.username
+    values: values.email ? values : {},
+    errors: !values.email
       ? {
           username: {
             type: "required",
@@ -26,15 +28,24 @@ const resolver: Resolver<CredentialsTypes> = async (values) => {
 };
 
 function LoginForm() {
-  const [password, setPassword] = useState("");
-
+  const router = useRouter()
   const {
     register,
     handleSubmit,
     formState: {errors},
   } = useForm<CredentialsTypes>({resolver});
 
-  const sendDetails = handleSubmit((data) => console.log(data));
+  const sendDetails = handleSubmit(async (data:CredentialsTypes) =>{
+    await fetch("http://localhost:3000/api/auth/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data)
+    })
+    router.push('/')
+
+  });
 
   return (
     <form
@@ -49,27 +60,25 @@ function LoginForm() {
                             "
         type="text"
         id="uname"
-        placeholder="Username"
-        {...register("username")}
+        placeholder="email"
+        {...register("email")}
       />
 
-      {errors?.username && (
+      {errors?.email && (
         <p className="font-bold text-red-600 uppercase ">
-          {errors.username.message}
+          {errors.email.message}
         </p>
       )}
 
       <input
         type="password"
-        name="password"
-        value={password}
         placeholder="Password"
         className="border-2 rounded-sm
                                 border-amber-700 
                                 border-double outline-offset-2
                                 text-lg
                                 "
-        onChange={(e) => setPassword(e.target.value)}
+        {...register("password")}        
       />
 
       {errors?.password && (
@@ -89,6 +98,7 @@ function LoginForm() {
           Register
         </h1>
       </Link>
+      <button onClick={() => signIn("email")}> Press here</button>
     </form>
   );
 }

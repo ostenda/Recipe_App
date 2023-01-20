@@ -1,17 +1,17 @@
 import React from "react";
-
+import useSession from "../hooks/useAuth"
 import Header from "../components/Header";
 
-type User = {
-  name: string;
-};
+
+
 
 function Page() {
-  const [user, setUser] = React.useState<User>();
-
+  const { data: session} = useSession()
+  console.log(session)
   return (
     <article>
-      <Header user={user} onLogout={() => setUser(undefined)} />
+      <Header user={session ? "this" : undefined}
+      />
 
       <section>
         <h2>Pages in Storybook</h2>

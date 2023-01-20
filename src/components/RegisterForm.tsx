@@ -1,6 +1,11 @@
 import React from "react";
-import Image from "next/image";
-import {useForm, Resolver} from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+import { useRouter } from "next/router";
+
+
+
 
 type RegisterFormTypes = {
   username: string;
@@ -9,49 +14,38 @@ type RegisterFormTypes = {
   motherMaidenName: string;
 };
 
-const resolver: Resolver<RegisterFormTypes> = async (values) => {
-  return {
-    values: values ? values : {},
-    errors: !values
-      ? {
-          username: {
-            type: "required",
-            message: "Please enter a valid username",
-          },
-          password: {
-            type: "required",
-            message: "Please enter a valid password",
-          },
-          email: {
-            type: "required",
-            message: "Please enter a valid email address",
-          },
-          motherMaidenName: {
-            type: "required",
-            message: "We must know your mother's maiden name",
-          },
-        }
-      : {},
-  };
-};
+const schema = yup.object({
+  username: yup.string().required().min(4),
+  password: yup.string().required().min(10),
+  email: yup.string().email().required(),
+  motherMaidenName: yup.string().required()
+}).required()
+
 
 function RegisterForm() {
+
+  const router = useRouter()
+
   const {
     register,
     handleSubmit,
-    formState: {errors},
-  } = useForm<RegisterFormTypes>({resolver});
+    formState: { errors },
+  } = useForm<RegisterFormTypes>({ resolver: yupResolver(schema) });
 
-  const sendDetails = handleSubmit((data) => console.log(data));
+  const sendDetails = handleSubmit(async (data: RegisterFormTypes) => {
+    await fetch("http://localhost:3000/api/utility/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data)
+    })
+    router.push('/')
+  });
 
   return (
     <>
-      <Image
-        className="index -z-10"
-        alt="The shelves you are going to be put in!"
-        src="/images/register-background.jpeg"
-        fill
-      />
+
       <div className="flex-column mx-auto justify-center items-center my-10">
         <h1
           className="flex justify-center font-bold border-4
