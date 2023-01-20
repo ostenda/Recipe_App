@@ -1,13 +1,11 @@
 import Image from "next/image";
 import LoginForm from "../components/LoginForm";
-import { HomeIcon } from "@heroicons/react/24/outline";
+import {HomeIcon} from "@heroicons/react/24/outline";
 
 export default function Login() {
   return (
     <div className="flex-column justify-center items-center h-screen">
-      <HomeIcon
-        className="h-10 w-10 mx-auto mb-10"
-      />
+      <HomeIcon className="h-10 w-10 mx-auto mb-10" />
       <Image
         className="relative -z-10 blur=sm brightness-90"
         src="/images/loginBackgroud.png"

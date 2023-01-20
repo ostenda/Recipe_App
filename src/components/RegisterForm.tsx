@@ -1,11 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup';
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRouter } from "next/router";
-
-
-
 
 type RegisterFormTypes = {
   username: string;
@@ -14,17 +11,17 @@ type RegisterFormTypes = {
   motherMaidenName: string;
 };
 
-const schema = yup.object({
-  username: yup.string().required().min(4),
-  password: yup.string().required().min(10),
-  email: yup.string().email().required(),
-  motherMaidenName: yup.string().required()
-}).required()
-
+const schema = yup
+  .object({
+    username: yup.string().required().min(4),
+    password: yup.string().required().min(10),
+    email: yup.string().email().required(),
+    motherMaidenName: yup.string().required(),
+  })
+  .required();
 
 function RegisterForm() {
-
-  const router = useRouter()
+  const router = useRouter();
 
   const {
     register,
@@ -38,14 +35,13 @@ function RegisterForm() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
-    })
-    router.push('/')
+      body: JSON.stringify(data),
+    });
+    router.push("/");
   });
 
   return (
     <>
-
       <div className="flex-column mx-auto justify-center items-center my-10">
         <h1
           className="flex justify-center font-bold border-4

@@ -1,11 +1,9 @@
 import Page from "./Page";
-import clientPromise from '../../lib/mongodb'
-
-
+import clientPromise from "../../lib/mongodb";
 
 export async function getServerSideProps() {
   try {
-    await clientPromise
+    await clientPromise;
     // `await clientPromise` will use the default database passed in the MONGODB_URI
     // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
     //
@@ -16,21 +14,20 @@ export async function getServerSideProps() {
     // db.find({}) or any of the MongoDB Node Driver commands
 
     return {
-      props: { isConnected: true },
-    }
+      props: {isConnected: true},
+    };
   } catch (e) {
-    console.error(e)
+    console.error(e);
     return {
-      props: { isConnected: false },
-    }
+      props: {isConnected: false},
+    };
   }
 }
 
 export default function Home() {
-    
-    return (
-      <div className="flex container w-screen h-screen mx-auto">
-        <Page />
-      </div>
-    );
-  }
+  return (
+    <div className="flex container w-screen h-screen mx-auto">
+      <Page />
+    </div>
+  );
+}

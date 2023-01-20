@@ -1,17 +1,13 @@
 import React from "react";
-import useSession from "../hooks/useAuth"
+import useSession from "../hooks/useAuth";
 import Header from "../components/Header";
 
-
-
-
 function Page() {
-  const { data: session} = useSession()
-  console.log(session)
+  const {data: session} = useSession();
+  console.log(session);
   return (
     <article>
-      <Header user={session ? "this" : undefined}
-      />
+      <Header user={session ? "this" : undefined} />
 
       <section>
         <h2>Pages in Storybook</h2>

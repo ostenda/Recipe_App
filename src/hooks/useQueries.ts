@@ -1,4 +1,3 @@
-
 import axios from "axios";
 
 type RegisterFormTypes = {
@@ -9,7 +8,5 @@ type RegisterFormTypes = {
 };
 
 export default function usePost(data: RegisterFormTypes, api: string) {
-
-    axios.post(api, data);
- 
+  axios.post(api, data);
 }

@@ -8,5 +8,5 @@ declare global {
 
 declare global {
   // eslint-disable-next-line no-var
-  var mongoose: {conn: mongoose.Connection | null, promise: Promise }
+  var mongoose: {conn: mongoose.Connection | null; promise: Promise};
 }

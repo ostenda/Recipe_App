@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
-import {useForm, Resolver} from "react-hook-form";
+import { useForm, Resolver } from "react-hook-form";
 import { signIn } from "next-auth/react";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 type CredentialsTypes = {
   email: string;
@@ -14,37 +14,36 @@ const resolver: Resolver<CredentialsTypes> = async (values) => {
     values: values.email ? values : {},
     errors: !values.email
       ? {
-          username: {
-            type: "required",
-            message: "Please enter a valid username",
-          },
-          password: {
-            type: "required",
-            message: "Please enter a valid password",
-          },
-        }
+        username: {
+          type: "required",
+          message: "Please enter a valid username",
+        },
+        password: {
+          type: "required",
+          message: "Please enter a valid password",
+        },
+      }
       : {},
   };
 };
 
 function LoginForm() {
-  const router = useRouter()
+  const router = useRouter();
   const {
     register,
     handleSubmit,
-    formState: {errors},
-  } = useForm<CredentialsTypes>({resolver});
+    formState: { errors },
+  } = useForm<CredentialsTypes>({ resolver });
 
-  const sendDetails = handleSubmit(async (data:CredentialsTypes) =>{
-    await fetch("http://localhost:3000/api/auth/", {
+  const sendDetails = handleSubmit(async (data: CredentialsTypes) => {
+    await fetch("http://localhost:3000/api/utility/findUser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
-    })
-    router.push('/')
-
+      body: JSON.stringify(data),
+    });
+    router.push("/");
   });
 
   return (
@@ -78,7 +77,7 @@ function LoginForm() {
                                 border-double outline-offset-2
                                 text-lg
                                 "
-        {...register("password")}        
+        {...register("password")}
       />
 
       {errors?.password && (
