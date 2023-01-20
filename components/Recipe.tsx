@@ -1,10 +1,8 @@
-import { HeartIcon } from "@heroicons/react/24/outline"
+
 import { ArrowLongRightIcon } from "@heroicons/react/24/outline"
 import Link from "next/link"
-import { useState } from "react";
 import { useMutation } from "react-query"
 import axios from "axios";
-import useSession from "../hooks/useNextAuth"
 import useCloudinary from "../hooks/useCloudinary";
 import { AdvancedImage } from "@cloudinary/react"
 
@@ -14,7 +12,6 @@ export default function RecipeShow({ recipe }) {
     const { Cloudinary } = useCloudinary()
 
     //So just registered users can like recipes!
-    const { data: session } = useSession()
 
     const { mutate } = useMutation(
         (recipe: unknown) => {

@@ -1,6 +1,6 @@
 import Head from "next/head"
 import LoginForm from "../components/LoginForm";
-import SinginForm from "../components/SinginForm";
+
 
 export default function Login() {
     
@@ -13,7 +13,6 @@ export default function Login() {
             <div className='flex'>
             
                 <LoginForm/>
-                <SinginForm/>
 
             </div>
         </div>
