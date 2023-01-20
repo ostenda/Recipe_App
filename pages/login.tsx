@@ -3,7 +3,7 @@ import LoginForm from "../components/LoginForm";
 import SinginForm from "../components/SinginForm";
 
 export default function Login() {
-
+    
     return (
         <div>
             <Head>

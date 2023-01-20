@@ -29,7 +29,7 @@ export default function CommentsSection({recipe, comments}) {
 
 
     return(
-        <div className='p-5 m-5 bg-orange-300 w-1/3 rounded-lg box-border md:box-content '>
+        <div className='p-5 m-5 bg-orange-300 w-1/3 rounded-lg box-border md:box-content mx-auto w-7/12'>
             <h1 className="font-bold m-8">Comments Section</h1>
             {session && (<>
                 <div>      
