@@ -32,7 +32,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   console.log('context')
   const ctx = await getSession(context)
 
-  //This guy is logged in, we will use it to check if they have already dropped a like in any recipe
   let user = null 
   if(ctx){
 
@@ -45,8 +44,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const ingredient_array = []
   const category_array = []
-  const likes_array = []
-  const already_liked_array = []
 
   if(user){
     await Promise.all(
@@ -61,7 +58,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       results.map(async (result) => {
         ingredient_array.push(await Ingredient.find({}).where('recipe_id').equals(result._id).lean());
         category_array.push(await Category.find({}).where('recipe_id').equals(result._id).lean());
-        already_liked_array.push(null )
       })
     )
   }
@@ -73,8 +69,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     ...{_id: doc._id.toString()},
     ...{ingredients: ingredient_array[index]},
     ...{categories: category_array[index]},
-    ...{likes: likes_array[index]},
-    ...{already_liked: already_liked_array[index]},
   }))
 
   return {props: { recipes:JSON.parse(JSON.stringify(recipes)) }}
