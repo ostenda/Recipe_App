@@ -30,7 +30,8 @@
     "src/pages/api/utility/users.ts",
     "cypress/e2e/spec.cy.ts",
     "src/pages/api/auth/[...nextauth].js",
-    "pages/**/*.ts"
+    "pages/**/*.ts",
+    "cypress/**/*.ts"
   ],
   "exclude": [
     "node_modules"

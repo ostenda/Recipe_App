@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRouter } from "next/router";
 
-type RegisterFormTypes = {
+export type RegisterFormTypes = {
   username: string;
   password: string;
   email: string;

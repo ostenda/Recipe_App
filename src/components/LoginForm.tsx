@@ -4,7 +4,7 @@ import { useForm, Resolver } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 
-type CredentialsTypes = {
+export type CredentialsTypes = {
   email: string;
   password: string;
 };

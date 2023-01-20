@@ -31,10 +31,10 @@ const Header = ({user}: HeaderProps) => {
         <ArrowLeftOnRectangleIcon className="h-8 w-8 mt-0.5" />
         <h4 className="text-gray-500">
           {session ? (
-            <button onClick={onLogout}>Log out</button>
+            <button onClick={onLogout} data-test="logout-button">Log out</button>
           ) : (
             <Link href="LoginPage">
-              <button>Log In</button>
+              <button data-test="login-button">Log In</button>
             </Link>
           )}
         </h4>
