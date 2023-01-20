@@ -20,7 +20,12 @@ export default function Header(){
           className="cursor-pointer"
         ></Image>
       </Link>
-      
+      <div className='items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0'>
+        <a href='/'><h1 className='m-2 font-bold transition duration-150 border-b-8 border-transparent'>Recipies</h1></a>
+        <a href='/'><h1 className='m-2 font-bold transition duration-150 border-b-8 border-transparent'>Categories</h1></a>
+        {session &&(<a href='/recipes/create'><h1 className='m-2 font-bold transition duration-150 border-b-8 border-transparent'>Add a recipe</h1></a>)}
+        {session &&(<a href='/'><h1 className='m-2  font-bold transition duration-150 border-b-8 border-transparent'>My Recipes</h1></a>)}
+      </div>
     
       <div>
           {!session && (

@@ -26,16 +26,15 @@ export default function RecipeShow({recipe}) {
 
     return(
         <div className="rounded-3xl bg-orange-300 w-full p-8 m-5">
-            <div className="flex">  
+            <div className="flex items-center justify-center">  
                 <div>
-                    <h1 className="font-bold p-1 m-2" data-test="recipe-name">{recipe.name}</h1>
-                    <h2 className="font-light p-1 m-2" data-test="recipe-author">By: {recipe.author.name}</h2>
+                    <h1 className="mt-1 font-sans text-sm text-Black-400 font-bold">Author: {recipe.author.name}</h1>
                 </div>            
             </div>
             {recipe.photo && (<>
-                <AdvancedImage className='rounded-3xl w-2/3 ml-2 mt-4 mb-4' cldImg={Cloudinary.image(recipe.photo)}/>
+                <AdvancedImage className='rounded-3xl w-full ml-2 mt-4 mb-4 flex object-centre' cldImg={Cloudinary.image(recipe.photo)}/>
             </>)}
-            <div className="flex">
+            <div className="flex items-center justify-center">
                 {recipe.categories && recipe.categories.map((category, i) => {           
                     return (
                         <div key={i}>
@@ -44,30 +43,8 @@ export default function RecipeShow({recipe}) {
                     ) 
                 })}
             </div>
-            <div className="flex m-5">
-                
-                <div className="m-5" data-test="recipe-details">
-                    <div>Dificulty: {recipe.dificulty}</div>
-                    <div>Time: {recipe.time_hours} h {recipe.time_minutes} min</div>
-                    <div>People: {recipe.number_people}</div>
-                    <div>Steps: 7</div>
-                </div>
-                
-                <div className="m-5" data-test="recipe-ingredients">
-                    <div>Ingredients:</div>
-                    <ul>
-                        {recipe.ingredients && recipe.ingredients.map((ingredient, i) => {           
-                            return (
-                                <div key={i}>
-                                    <li  className="rounded-2xl text-black p-1 m-2">{ingredient.amount} {ingredient.unit} {ingredient.ingredient}</li>
-                                </div>
-                            ) 
-                        })}
-                    </ul>
-                </div>
-            </div>
             <Link href={`recipes/${recipe._id}`}>
-                <button className="flex text-black font-bold">
+                <button className="flex text-black font-bold  ">
                     <div className=""></div><ArrowLongRightIcon className="w-10 ml-5"/>
                 </button>
             </Link>

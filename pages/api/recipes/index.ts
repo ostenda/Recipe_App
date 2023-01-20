@@ -52,7 +52,7 @@ export default async function Handler(req, res) {
                     })
                 });
                
-                const message = "Recipe  Registered"
+                const message = "Recipe Registered"
 
                 res.status(201).json({success: true, result: recipe, message:message})
 

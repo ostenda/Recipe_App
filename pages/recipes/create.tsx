@@ -4,7 +4,7 @@ import { useMutation } from "react-query"
 import axios from "axios";
 import { RecipeValues } from "../../components/RecipeCreateForm";
 import useSession from "../../hooks/useNextAuth"
-
+//https://www.youtube.com/watch?v=pJiRj02PkJQ&ab_channel=TheNetNinja
 export default function RecipesIndex() {
 
     const {isSuccess, isError, mutate} = useMutation(
@@ -13,7 +13,7 @@ export default function RecipesIndex() {
                 withCredentials: true});
         }
     )
-    //tutorial: https://www.youtube.com/watch?v=pJiRj02PkJQ&ab_channel=TheNetNinja
+    
     
     const {data: session} = useSession()
     if(!session){

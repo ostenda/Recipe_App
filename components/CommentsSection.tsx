@@ -29,7 +29,7 @@ export default function CommentsSection({recipe, comments}) {
 
 
     return(
-        <div className='p-5 m-5 bg-white w-1/3 rounded-lg'>
+        <div className='p-5 m-5 bg-orange-300 w-1/3 rounded-lg box-border md:box-content '>
             <h1 className="font-bold m-8">Comments Section</h1>
             {session && (<>
                 <div>      
@@ -40,9 +40,9 @@ export default function CommentsSection({recipe, comments}) {
                         rows={5}
                         onChange={(e) => setCommentContent(e.target.value)}
                     ></textarea>
-                    <h3 className="font-bold text-red-600">
+                    <h3 className="font-bold">
                         {commentError && (
-                            <span data-test="name-error">Too short! At least 10 characters</span>
+                            <span data-test="name-error">Too short, please use more characters!</span>
                         )}
                     </h3>
                     <button 
@@ -51,15 +51,15 @@ export default function CommentsSection({recipe, comments}) {
                             recipe_id: recipe._id,
                             text: commentContent
                         })}  
-                        className="m-auto flex rounded-2xl bg-rose-400 w-full">
-                        <div className="mb-1 mt-1 m-auto text-white font-bold">Share </div>
+                        className="m-auto flex rounded-2xl bg-white-400 w-full">
+                        <div className="mb-1 mt-1 m-auto text-black font-bold">Share </div>
                     </button>
 
                 
                 </div>
             </>)}
             {!session && (<>
-                <h1 className="m-5 p-5 font-bold">Log In To Comment!</h1>
+                <h1 className="m-5 p-5 font-bold">You have to log In to make a comments</h1>
             </>)}
             {comments.length >= 1 && (<>
                 <div className="m-5 p-5 border-2 border-black rounded-2xl	">
@@ -68,7 +68,6 @@ export default function CommentsSection({recipe, comments}) {
                         <div key={i} className="">
                             <div className="flex mt-10">
                                 <div className=""><img src={comment.user_id.image} className="w-12 rounded-3xl"/></div>
-                                {/* <div className=""><Image alt="{comment.user_id.name} + icon" src={comment.user_id.image} width={10} height={10}/></div> */}
                                 <div className="m-3 font-semibold">{comment.user_id.name}</div>
                             </div>
                             <div className="p-5">{comment.text}</div>

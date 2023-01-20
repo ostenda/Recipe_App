@@ -18,4 +18,3 @@ const ingredientSchema = new Schema<IngredientInterface, Model<IngredientInterfa
 })
 export default (models.Ingredient as Model<IngredientInterface>) || model<IngredientInterface>("Ingredient", ingredientSchema)
 
-//https://wanago.io/2018/12/31/mongodb-relationships-documents-typescript-express-tutorial-5/

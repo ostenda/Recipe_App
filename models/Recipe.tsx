@@ -25,4 +25,3 @@ const recipeSchema = new Schema<RecipeInterface, Model<RecipeInterface>>({
 })
 export default (models.Recipe as Model<RecipeInterface>) || model<RecipeInterface>("Recipe", recipeSchema)
 
-//https://wanago.io/2018/12/31/mongodb-relationships-documents-typescript-express-tutorial-5/

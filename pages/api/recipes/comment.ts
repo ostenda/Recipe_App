@@ -22,7 +22,7 @@ export default async function Handler(req, res) {
                 req.body.user_id=user._id
 
                 const comment = await Comment.create(req.body)
-                const message = "Comment Succesfully Created"
+                const message = "Comment Created"
 
                 res.status(201).json({success: true, result: comment, message:message})
                 
@@ -33,7 +33,7 @@ export default async function Handler(req, res) {
         break;
         default:
 
-            res.status(400).json({success: false, message: "Ops! Something went wrong"})
+            res.status(400).json({success: false, message: " Something went wrong"})
         break;
     }
     

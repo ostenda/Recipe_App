@@ -20,7 +20,7 @@ export default async function handler(req, res) {
                 res.status(201).json({success: true, result: recipe, message:message})
 
             } catch (error) {
-                res.status(400).json({success: false, error: error, message: 'Ops! Something went wrong'})
+                res.status(400).json({success: false, error: error, message: ' Something went wrong'})
             }
             
         break;
@@ -32,17 +32,17 @@ export default async function handler(req, res) {
                     res.status(400).json({success: false})
                 }
                 
-                const message = 'Repice Succesfully Deleted'
+                const message = 'Repice  Deleted'
                 res.status(201).json({success: true, result: recipe, message:message})
 
             } catch (error) {
-                res.status(400).json({success: false, error: error, message: 'Ops! Something went wrong'})
+                res.status(400).json({success: false, error: error, message: ' Something went wrong'})
             }
             
         break;
         default:
 
-            res.status(400).json({success: false, message: 'Ops! Something went wrong'})
+            res.status(400).json({success: false, message: 'Something went wrong'})
         break;
     }
     

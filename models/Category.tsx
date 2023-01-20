@@ -15,4 +15,3 @@ const categoryeSchema = new Schema<CategoryInterface, Model<CategoryInterface>>(
 })
 export default (models.Category as Model<CategoryInterface>) || model<CategoryInterface>("Category", categoryeSchema)
 
-//https://wanago.io/2018/12/31/mongodb-relationships-documents-typescript-express-tutorial-5/

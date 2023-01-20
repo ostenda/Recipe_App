@@ -5,7 +5,6 @@ import dbConnect from "../lib/dbConnect"
 import Recipe from "../models/Recipe"
 import Ingredient from "../models/Ingredient"
 import Category from "../models/Category"
-import Like from "../models/Like"
 import User from "../models/User"
 import { getSession } from 'next-auth/react'
 
@@ -52,8 +51,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       results.map(async (result) => {
         ingredient_array.push(await Ingredient.find({}).where('recipe_id').equals(result._id).lean());
         category_array.push(await Category.find({}).where('recipe_id').equals(result._id).lean());
-        likes_array.push(await Like.count({}).where('recipe_id').equals(result._id).lean());
-        already_liked_array.push( await Like.findOne({'recipe_id':result._id, 'user_id':user._id}) )
+
       })
     )
   }else{
@@ -61,7 +59,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       results.map(async (result) => {
         ingredient_array.push(await Ingredient.find({}).where('recipe_id').equals(result._id).lean());
         category_array.push(await Category.find({}).where('recipe_id').equals(result._id).lean());
-        likes_array.push(await Like.count({}).where('recipe_id').equals(result._id).lean());
         already_liked_array.push(null )
       })
     )

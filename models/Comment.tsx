@@ -17,4 +17,3 @@ const commentSchema = new Schema<CommentInterface, Model<CommentInterface>>({
 })
 export default (models.Comment as Model<CommentInterface>) || model<CommentInterface>("Comment", commentSchema)
 
-//https://wanago.io/2018/12/31/mongodb-relationships-documents-typescript-express-tutorial-5/

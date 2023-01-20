@@ -158,7 +158,7 @@ export default function RecipeCreateForm(props: RecipeFormProps) {
                     {errors && (
                             <span data-test="building-error"> {Object.keys(errors)}</span>
                         )}
-                    <h1 className='m-3 font-extrabold text-2xl text-rose-500'>Share Your Recipe!</h1>
+                    <h1 className='m-3 font-extrabold text-2xl text-black-200'>Recipe Creator</h1>
                     <div className='m-3'>
                         <label htmlFor='name'><b>Name:</b></label>
                         <input 
@@ -171,7 +171,7 @@ export default function RecipeCreateForm(props: RecipeFormProps) {
                             data-test="name-input"
                         />
                     </div>
-                    <h3 className="font-bold text-red-600">
+                    <h3 className="font-bold text-grey-600">
                         {errors.name && (
                             <span data-test="name-error"> Name is required</span>
                         )}
@@ -237,12 +237,12 @@ export default function RecipeCreateForm(props: RecipeFormProps) {
                             /><div className='m-2'>minutes</div>
                         </div>
                         <div className="p-2">
-                            <h3 className="font-bold text-red-600">
+                            <h3 className="font-bold text-grey-600">
                                 {errors.time_hours && (
                                     <span data-test="hours-error"> Hours is required</span>
                                 )}
                             </h3>
-                            <h3 className="font-bold text-red-600">
+                            <h3 className="font-bold text-grey-600">
                                 {errors.time_minutes && (
                                     <span data-test="minute-error"> Minutes is required</span>
                                 )}
@@ -261,7 +261,7 @@ export default function RecipeCreateForm(props: RecipeFormProps) {
                             {...register("number_people", {required: true})} 
                         />
                     </div>
-                    <h3 className="font-bold text-red-600 p-2">
+                    <h3 className="font-bold text-grey-600 p-2">
                         {errors.number_people && (
                             <span data-test="NoP-error"> Number of people is required</span>
                         )}
@@ -281,11 +281,11 @@ export default function RecipeCreateForm(props: RecipeFormProps) {
                                         />
                                         {i == categories.length-1 &&
                                             <div onClick={() => {removeCategory(); unregister(`categories`)}}>
-                                                <button><MinusCircleIcon className="w-8 m-2 text-rose-500" /></button>
+                                                <button><MinusCircleIcon className="w-8 m-2 text-grey-500" /></button>
                                             </div>
                                         }
                                     </div>
-                                    <h3 className="font-bold text-red-600">
+                                    <h3 className="font-bold text-grey-600">
                                         {errors.categories?.[i] && (
                                             <span data-test="category-error"> Category is required</span>
                                         )}
@@ -293,11 +293,11 @@ export default function RecipeCreateForm(props: RecipeFormProps) {
                                 </div>
                             ))}
                         </div>
-                        <div onClick={addCategory} className="m-auto flex rounded-2xl bg-rose-400 w-3/5">
+                        <div onClick={addCategory} className="m-auto flex rounded-2xl bg-grey-400 w-3/5">
                             <div className="mt-2.5 m-auto text-white" data-test="category-button">Add Category </div>
                             <PlusCircleIcon className="w-8 m-2 text-white" />
                         </div>
-                        <h3 className="font-bold text-red-600 p-2">
+                        <h3 className="font-bold text-grey-600 p-2">
                             {errors.categories && (
                                 <span data-test="category-error"> At least one category is required</span>
                             )}
@@ -349,23 +349,23 @@ export default function RecipeCreateForm(props: RecipeFormProps) {
                             </div>
                         ))}
                         <div>
-                            <h3 className="font-bold text-red-600 p-2">
+                            <h3 className="font-bold text-grey-600 p-2">
                                 {errors.ingredient_amounts && (
                                     <span data-test="ingredient-error"> Ingredient amounts are required</span>
                                 )}
                             </h3>
-                            <h3 className="font-bold text-red-600 p-2">
+                            <h3 className="font-bold text-grey-600 p-2">
                                 {errors.ingredient_ingredients && (
                                     <span data-test="ingredient-error"> Ingredients can´t be empty</span>
                                 )}
                             </h3>
-                            <h3 className="font-bold text-red-600 p-2">
+                            <h3 className="font-bold text-grey-600 p-2">
                                 {errors.ingredient_units && (
                                     <span data-test="ingredient-error"> Ingredient units are required</span>
                                 )}
                             </h3>
                         </div>
-                        <div onClick={addIngredient} className="m-auto flex rounded-2xl bg-rose-400 w-3/5">
+                        <div onClick={addIngredient} className="m-auto flex rounded-2xl bg-grey-400 w-3/5">
                             <div className="mt-2.5 m-auto text-white" data-test="ingredients-button">Add Ingredient </div>
                             <PlusCircleIcon className="w-8 m-2 text-white" />
                         </div>
@@ -396,60 +396,30 @@ export default function RecipeCreateForm(props: RecipeFormProps) {
                                     <hr/>
                                     {i == steps.length-1 &&
                                         <div onClick={() => {removeStep(); unregister([`step_titles`,`step_contents`,`step_images`])}}>
-                                            <button><MinusCircleIcon className="w-8 m-2 text-rose-500" /></button>
+                                            <button><MinusCircleIcon className="w-8 m-2 text-grey-500" /></button>
                                         </div>
                                     }
                                 </div>   
                             </div>
                         ))}
-                        <h3 className="font-bold text-red-600 p-2">
+                        <h3 className="font-bold text-grey-600 p-2">
                             {errors.step_titles && (
                                 <span data-test="ingredient-error"> Step Titles can´t be empty</span>
                             )}
                         </h3>
-                        <h3 className="font-bold text-red-600 p-2">
+                        <h3 className="font-bold text-red-grey p-2">
                             {errors.step_contents && (
                                 <span data-test="ingredient-error"> Step Content can´t be empty</span>
                             )}
                         </h3>
-                        {/* <div className='m-3'>
-                            <div className='m-2'>
-                                <label>Title:</label><input type='text' className='rounded-lg ml-6' name='category[]' data-test="steps-title-input"
-                                    
-                                ></input>
-                            </div>
-                            <div className='m-2 mt-6 flex'>
-                                <label>Content:</label><textarea className='rounded-lg ml-6' data-test="steps-content-input"
-                                   
-                                ></textarea>
-                            </div>
-                            { thumb && (<>
-                                <AdvancedImage cldImg={Cloudinary.image(thumb).resize(thumbnail().width(150).height(150))} />
-                                <TrashIcon className="w-6 h-6 cursor-pointer m-5" onClick={() => setThumb("")}/>
-                                </>)}
-                            <div className='m-2 flex'>
-                                <div className="flex justify-center items-center w-full">
-                                    <label htmlFor="dropzone-file" className="flex flex-col justify-center items-center w-full h-64 bg-rose-100 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-rose-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 mt-5">
-                                        <div className="flex flex-col justify-center items-center pt-5 pb-6">
-                                            <svg aria-hidden="true" className="mb-3 w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                                            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click to upload</span></p>
-                                            <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                                        </div>
-                                        <input id="dropzone-file" type="file" className="hidden" onClick={handleUpload} />
-                                    </label>
-                                </div>
-                            </div>
-                        </div> */}
-                        <div onClick={addStep} className="m-auto flex rounded-2xl bg-rose-400 w-3/5">
+                        
+                        <div onClick={addStep} className="m-auto flex rounded-2xl bg-grey-400 w-3/5">
                             <div className="mt-2.5 m-auto text-white" data-test="steps-button">Add Step </div>
                             <PlusCircleIcon className="w-8 m-2 text-white" />
                         </div>
                     </div>
                     
-
-                    <input type="checkbox" className="rounded text-pink-500 ml-11 m-2" data-test="ToS-input" /> I accept Terms & Conditions
-
-                    <input className="w-full h-12 px-6 text-indigo-100 transition-colors duration-150 bg-rose-700 rounded-lg focus:shadow-outline hover:bg-rose-800" type='submit' data-test="submit-button" value='Share Recipe!'></input> 
+                    <input className="w-full h-12 px-6 text-indigo-100 transition-colors duration-150 bg-grey-700 rounded-lg focus:shadow-outline hover:bg-grey-800" type='submit' data-test="submit-button" value='Share Recipe!'></input> 
                 </form>
                 
 
