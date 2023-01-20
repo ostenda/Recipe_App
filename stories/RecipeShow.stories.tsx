@@ -6,28 +6,28 @@ import React from 'react';
 storiesOf('RecipeShow', module)
   .add('default', () => {
     const recipe = {
-        name: 'Cake', 
+        name: 'Lasagne', 
         author: {
-            name: 'David'
+            name: 'Tom'
         },
-        time_hours: 1,
-        time_minutes: 29,
-        dificulty: 'Easy',
-        photo: 'recipify/5hayww75@solent.ac.uk/cake_f2jkii'
+        time_hours: 3,
+        time_minutes: 69,
+        dificulty: 'Hard',
     }
     const categories = [
-        { name: 'Baking' },
-        { name: 'Easy' }
+        { name: 'Stir' },
+        { name: 'Fry' }
     ]
-    const ingredients = [
-        { amount: 500, unit: 'gr', ingredient: 'Flour' },
-        { amount: 2, unit: 'units', ingredient: 'eggs' },
-        { amount: 50, unit: 'gr', ingredient: 'Butter' }
-    ]
+   
     const steps = [
-        { title: 'Step 1', content: 'Brown the ground beef in a pan' },
-        { title: 'Step 2', content: 'Add the onion and cook until softened' },
-        { title: 'Step 3', content: 'Add the crushed tomatoes and simmer for 30 minutes' }
+        { title: 'Step 1', content: 'Put pasta water on to boil. ..' },
+        { title: 'Step 2', content: 'Brown the ground beef. ...' },
+    ]
+
+    const ingredients = [
+        { amount: 500, unit: 'gr', ingredient: 'Beef' },
+        { amount: 2, unit: 'units', ingredient: 'Pasta' },
+        { amount: 50, unit: 'gr', ingredient: 'Tomatoes' }
     ]
     return <RecipeShow recipe={recipe} categories={categories} ingredients={ingredients} steps={steps}/>;
   });
