@@ -10,19 +10,11 @@ import { AdvancedImage } from "@cloudinary/react"
 
 export default function RecipeShow({ recipe }) {
 
-    // images
+
     const { Cloudinary } = useCloudinary()
 
-    //So just registered users can like recipes!
     const { data: session } = useSession()
 
-    const { mutate } = useMutation(
-        (recipe: unknown) => {
-            return axios.post("/api/recipes/like", recipe, {
-                withCredentials: true
-            });
-        }
-    )
 
 
     return (
@@ -36,7 +28,7 @@ export default function RecipeShow({ recipe }) {
             {recipe.photo && (<>
                 <AdvancedImage className='rounded-3xl w-full ml-2 mt-4 mb-4 flex object-centre' cldImg={Cloudinary.image(recipe.photo)} />
             </>)}
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center align-bottom">
                 {recipe.categories && recipe.categories.map((category, i) => {
                     return (
                         <div key={i}>
@@ -46,7 +38,7 @@ export default function RecipeShow({ recipe }) {
                 })}
             </div>
             <Link href={`recipes/${recipe._id}`}>
-                <button className="flex text-black font-bold  ">
+                <button className="flex text-black font-bold items-center justify-center">
                     <div className=""></div><ArrowLongRightIcon className="w-10 ml-5" />
                 </button>
             </Link>
