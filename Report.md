@@ -57,31 +57,27 @@ For automated acceptance/integration tests we used Cypress. This tool helped us 
 
 The approach that we used in this project is component base. Storybook is an environment that allows us to create and showcase components outside of our main application. Storybook helped us to documenting our project and, made reusing the components easier. 
 
-# Search for all Recipes story:
-#########
 
-# Login story
-#######
+# Storybook
 
-# Logout story
-#######
+When are are writing an application, it is of great important to design and test the components of the application. We are able to test complex activities and make sure that the components we have written always work as expected. Storybook is a tool for creating application interface components. It allows you to browse components, view the different states of each component and test components. Storybook makes component creation faster and easier by isolating components. We are able to create entire user interfaces without having to move around the application, and it also helps to document components for reuse, and gives you the ability to test them visually to prevent errors. 
 
-# registration story
-########
-# Adding new Recipes story
-##########
+# Idea of Registration component/story.
+We had an idea to build registration component when after we are thinking of creating a component. After filling in the appropriate form, we would like an alarm or pop up to indicate that we have registered. The page should then redirect us to the home page where we would already be logged in. 
 
-# Adding comments under each recipe story
-########
-# Like each recipe story
-#########
+## Login story
+To create story itselft we need to create imnport of the component itself. After that we use react build-it template. Then we return it as a GS component. Export the tilte and the component was the next step. Finaly the code export the title and right properties. component and the type of the component has to rendered. At the end we bind the template and it is shows up as soon as we click on it. 
+
+# Adding new Comment story
+Unfortunetly we ancountered some bugs on the way. Comment story section requierd quarie client provider. The ideo of unbuging it was to wrap our element inside client provider and pass it to session tjat we have
+
 # Unit test
-This part of test checks every single block of code seprately. 
-############## 
+In one of our repositories we manage to use Cypress. We secessuly tested main login and register page. The testing approach we used allowed us to carry out some unit tests on our code. The tests not only catch our bugs but also help us to document our code. As soos as the server starts Cypress send the GET request to these locations to visit them. It will come with the messege ("They have been found"). If connection lost the test will fail.
+
+
 
 # Deployment
-The app been deployed on ####.
-########
+The app been deployed on Vercel. This platform is using own dependences and runs application with with simultaneous tests. 
 
 
 
