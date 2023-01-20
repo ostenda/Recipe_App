@@ -31,7 +31,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   console.log('context')
   const ctx = await getSession(context)
 
-  //This guy is logged in, we will use it to check if they have already dropped a like in any recipe
   let user = null 
   if(ctx){
     user = await User.findOne({}).where('email').equals(ctx.user.email).lean()

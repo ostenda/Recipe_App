@@ -144,7 +144,7 @@ export default function RecipeCreateForm(props: RecipeFormProps) {
     
 
     return(
-        <div className='p-5 m-5 bg-white flex max-w-md rounded'>
+        <div className='p-5 m-5 bg-orange-300 flex max-w-md rounded'>
                 <form 
                     onSubmit={handleSubmit((data) => 
                         onSubmit({
