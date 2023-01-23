@@ -10,7 +10,7 @@
     "test-jest": "jest",
     "cypress:open": "cypress open",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o docs-build",
     "test:unit": "jest --watch",
     "test:ci": "jest --ci",
     "test": "cross-env NODE_ENV=test  next dev",
