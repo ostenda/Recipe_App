@@ -41,6 +41,7 @@
   "devDependencies": {
     "@babel/core": "^7.19.3",
     "@heroicons/react": "^2.0.13",
+    "@hookform/resolvers": "^2.9.10",
     "@storybook/addon-actions": "^6.5.12",
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/addon-interactions": "^6.5.12",
